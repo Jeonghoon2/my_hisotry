@@ -1,0 +1,18 @@
+[project]
+name = "my_history"
+version = "0.1.1"
+description = "Default template for PDM package"
+authors = [
+    {name = "Jeonghoon2", email = "ukidd12@naver.com"},
+]
+dependencies = []
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.scripts]
+p-search = "my_history.my_history:cnt"
+
+
+[tool.pdm]
+distribution = true
