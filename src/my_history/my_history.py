@@ -1,18 +1,34 @@
 import pandas as pd
 import argparse
 
-
 # -s : count
 # -t : 지정 횟수로 해당 일자의 커맨드 값 조회
+command_helper = """
+Command Helper
+-s : 커맨드 명령어를 인자값으로 넣어 주세요.
+-t : 행 출력 개수를 지정하기 위한 인자값을 넣어 주세요.
+    -d : 출력 하고 싶은 날짜의 값을 넣어 주세요. 
+"""
+
 
 def init():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='테스트')
 
-    parser.add_argument('-s', required=False)
-    parser.add_argument('-d', required=False)
-    parser.add_argument('-t', required=False)
-    parser.add_argument('--help', required=False)
-    parser.add_argument('-help', required=False)
+    parser.add_argument(
+        '-s',
+        help="커맨드 명령어를 인자값으로 넣어 주세요.",
+        required=False
+    )
+    parser.add_argument(
+        '-d',
+        help="행 출력 개수를 지정하기 위한 인자값을 넣어 주세요.",
+        required=False
+    )
+    parser.add_argument(
+        '-t',
+        help="출력 하고 싶은 날짜의 값을 넣어 주세요.",
+        required=False
+    )
     return parser
 
 
@@ -35,10 +51,5 @@ def cnt():
         fdf = fdf.head(int(args.get('t')))
         print(fdf.to_string(index=False))
     else:
-        print("""
-                    Command Helper
-                    -s : command 명령어
-                    -t : 출력 행 개수
-                        -d : 날짜
-                """)
+        print(command_helper)
         return
