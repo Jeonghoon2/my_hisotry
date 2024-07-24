@@ -17,15 +17,6 @@ def init():
 
 
 def cnt():
-    if '--help' is not None or '-help' is not None:
-        print("""
-            Command Helper
-            -s : command 명령어
-            -t : 출력 행 개수
-                -d : 날짜
-        """)
-        return
-
     # Parquet 파일 읽기
     df = pd.read_parquet(path="~/data/parquet")
 
@@ -43,3 +34,11 @@ def cnt():
 
         fdf = fdf.head(int(args.get('t')))
         print(fdf.to_string(index=False))
+    else:
+        print("""
+                    Command Helper
+                    -s : command 명령어
+                    -t : 출력 행 개수
+                        -d : 날짜
+                """)
+        return
