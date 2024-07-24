@@ -11,10 +11,21 @@ def init():
     parser.add_argument('-s', required=False)
     parser.add_argument('-d', required=False)
     parser.add_argument('-t', required=False)
+    parser.add_argument('--help', required=False)
+    parser.add_argument('-help', required=False)
     return parser
 
 
 def cnt():
+    if '--help' is not None or '-help' is not None:
+        print("""
+            Command Helper
+            -s : command 명령어
+            -t : 출력 행 개수
+                -d : 날짜
+        """)
+        return
+
     # Parquet 파일 읽기
     df = pd.read_parquet(path="~/data/parquet")
 
