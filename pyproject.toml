@@ -1,18 +1,27 @@
 [project]
 name = "my_history"
-version = "0.1.1"
+version = "0.2.0"
 description = "Default template for PDM package"
 authors = [
     {name = "Jeonghoon2", email = "ukidd12@naver.com"},
 ]
 dependencies = []
-requires-python = "==3.11.*"
+requires-python = ">=3.9"
 readme = "README.md"
 license = {text = "MIT"}
 
 [project.scripts]
 p-search = "my_history.my_history:cnt"
 
-
 [tool.pdm]
-distribution = true
+distribution = false
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8.3.1",
+    "pytest-cov>=5.0.0",
+]
+
+[project.urls]
+Homepage="https://github.com/Jeonghoon2/my_hisotry"
+Issue="https://github.com/Jeonghoon2/my_hisotry/issues"
